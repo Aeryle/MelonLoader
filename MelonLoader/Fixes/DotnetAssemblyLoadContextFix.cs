@@ -88,11 +88,11 @@ namespace MelonLoader.Fixes
             //MelonDebug.Msg($"[ALC FromPath] Validating {ilPath}...");
 
             //Simple pass-to-verifier and throw if bad.
-            var (ok, reason) = AssemblyVerifier.VerifyFile(ilPath);
-            if (!ok)
-            {
-                throw new BadImageFormatException();
-            }
+            // var (ok, reason) = AssemblyVerifier.VerifyFile(ilPath);
+            // if (!ok)
+            // {
+            //     throw new BadImageFormatException();
+            // }
 
             //Continue to run the original runtime QCall.
             return true;
@@ -106,11 +106,11 @@ namespace MelonLoader.Fixes
             Marshal.Copy(ptrAssemblyArray, assemblyBytes, 0, iAssemblyArrayLen);
 
             //Once again, pass to verifier and throw if bad.
-            var (ok, reason) = AssemblyVerifier.VerifyByteArray(assemblyBytes);
-            if (!ok)
-            {
-                throw new BadImageFormatException();
-            }
+            // var (ok, reason) = AssemblyVerifier.VerifyByteArray(assemblyBytes);
+            // if (!ok)
+            // {
+            //     throw new BadImageFormatException();
+            // }
 
             //And once again, continue to run the runtime QCall.
             return true;
