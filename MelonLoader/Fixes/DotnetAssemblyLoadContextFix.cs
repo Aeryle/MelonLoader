@@ -87,12 +87,13 @@ namespace MelonLoader.Fixes
         {
             //MelonDebug.Msg($"[ALC FromPath] Validating {ilPath}...");
 
+            // !!! Disable this check because it breaks some DLLs like Vortice.DirectX (and as such, any attempt at UI using ClickableTransparentOverlay)
             //Simple pass-to-verifier and throw if bad.
-            var (ok, reason) = AssemblyVerifier.VerifyFile(ilPath);
-            if (!ok)
-            {
-                throw new BadImageFormatException();
-            }
+            // var (ok, reason) = AssemblyVerifier.VerifyFile(ilPath);
+            // if (!ok)
+            // {
+            //     throw new BadImageFormatException();
+            // }
 
             //Continue to run the original runtime QCall.
             return true;
